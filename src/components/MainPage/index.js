@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Container } from 'theme-ui';
+import { Container, Styled } from 'theme-ui';
 
 function MainPageComponent() {
     const { t } = useTranslation();
@@ -14,11 +14,11 @@ function MainPageComponent() {
                     px: 3,
                     variant: 'container',
             }}>
-                <h1>{t('mainpage.title')}</h1>
-                <h2>{t('mainpage.subtitle')}</h2>
+                <Styled.h1>{t('mainpage.title')}</Styled.h1>
+                <Styled.h2>{t('mainpage.subtitle')}</Styled.h2>
             </Container>
             <Container>
-                lmao
+
             </Container>
         </main>
     );

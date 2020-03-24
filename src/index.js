@@ -13,8 +13,12 @@ ReactDOM.render(
       <GoogleFontLoader
           fonts={[
               {
-                  font: 'Inter',
-                  weights: [400, '400i'],
+                  font: 'Roboto',
+                  weights: [400, 700, '400i'],
+              },
+              {
+                  font: 'Roboto Slab',
+                  weights: [400, 700],
               },
               {
                   font: 'Roboto Mono',
