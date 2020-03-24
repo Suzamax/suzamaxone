@@ -6,7 +6,7 @@ export default {
         ...polaris.styles,
     },
     fonts: {
-        body: 'Roboto, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
+        body: 'Roboto, "Noto Color Emoji",  sans-serif',
         heading: 'Roboto Slab, serif',
         monospace: 'Roboto Mono, monospace',
     },
