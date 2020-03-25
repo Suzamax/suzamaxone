@@ -20,8 +20,10 @@ i18n
                         subtitle: "Sysadmin, DevOps, web developer: frontend and backend"
                     },
                     skills: {
-                        title: "Skills",
-
+                        title: "Skills/CV"
+                    },
+                    blog: {
+                        title: "Blog"
                     },
                     about: {
                         title: "About me"
@@ -37,7 +39,7 @@ i18n
                         subtitle: "Administrador de sistemas, DevOps, desarrollador web frontend y backend",
                     },
                     skills: {
-                        title: "Habilidades"
+                        title: "Habilidades/CV"
                     },
                     about: {
                         title: "Sobre mí"

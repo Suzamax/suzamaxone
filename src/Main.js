@@ -1,24 +1,27 @@
 /** @jsx jsx */
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link
 } from "react-router-dom";
-import MainPage from "./components/MainPage";
-import Layout from './components/Layout';
-import Skills from "./components/Skills";
 import { Container, jsx } from "theme-ui";
 import {useTranslation} from "react-i18next";
-import {Suspense} from "react";
+import { Suspense } from "react";
+
+import routes from "./router";
+import Layout from './components/Layout';
+
 
 function AppComponent() {
     const { t } = useTranslation();
+    let d = new Date().getHours();
+    let night = d > 18 || d < 7;
 
     return (
     <Router>
         <div sx={{
-            bg: 'gray',
+            bg: 'muted',
         }}>
             <Container sx={{
                 maxWidth: 960
@@ -40,7 +43,7 @@ function AppComponent() {
                     }}>
                         <Link to="/"
                               css={{
-                                  background: 'linear-gradient(225deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)',
+                                  background: night ? 'linear-gradient(45deg, rgba(255,255,255,1) 0%, rgba(233,233,233,1) 35%, rgba(210,210,210,1) 100%)' : 'linear-gradient(225deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)',
                                   '-webkit-background-clip': 'text',
                                   color: 'transparent'
                               }} sx={{
@@ -51,7 +54,7 @@ function AppComponent() {
                             textDecoration: 'none',
                             letterSpacing: '0.1em',
                             border: '4px solid transparent',
-                            borderImage: 'linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%) 1 round',
+                            borderImage: (d > 18 || d < 7) ? 'linear-gradient(45deg, rgba(180,180,180,1) 0%, rgba(233,233,233,1) 35%, rgba(255,255,255,1) 100%) 1 round' : 'linear-gradient(45deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%) 1 round',
                             color: 'primary'
                         }}>Suzamax</Link>
                     </div>
@@ -64,7 +67,7 @@ function AppComponent() {
                         <Link to="/skills" sx={{
                             variant: 'styles.navlink',
                             textDecoration: 'none',
-                            color: 'primary',
+                            color: night ? 'white' : 'primary',
                             fontWeight: 700,
                             ml: 3,
                             py: 3,
@@ -72,7 +75,7 @@ function AppComponent() {
                         <Link to="/blog" sx={{
                             variant: 'styles.navlink',
                             textDecoration: 'none',
-                            color: 'primary',
+                            color: night ? 'white' : 'primary',
                             fontWeight: 700,
                             ml: 3,
                             py: 3,
@@ -80,7 +83,7 @@ function AppComponent() {
                         <Link to="/about" sx={{
                             variant: 'styles.navlink',
                             textDecoration: 'none',
-                            color: 'primary',
+                            color: night ? 'white' : 'primary',
                             fontWeight: 700,
                             ml: 3,
                             py: 3,
@@ -92,25 +95,31 @@ function AppComponent() {
 
         <Layout>
             <Switch>
-                <Route path="/skills">
-                  <Skills/>
-                </Route>
-                <Route path="/blog">
-                  <div>blog</div>
-                </Route>
-                <Route path="/">
-                  <MainPage/>
-                </Route>
+                {routes.map((route, i) => (
+                    <RouteWithSubRoutes key={i} {...route} />
+                ))}
             </Switch>
         </Layout>
     </Router>
   );
 }
 
-export default function App() {
+export default function Main() {
     return (
         <Suspense fallback="...">
             <AppComponent/>
         </Suspense>
+    );
+}
+
+function RouteWithSubRoutes(route) {
+    return (
+        <Route
+            path={route.path}
+            render={props => (
+                // pass the sub-routes down to keep nesting
+                <route.component {...props} />
+            )}
+        />
     );
 }

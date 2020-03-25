@@ -2,11 +2,17 @@
 import { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
 import { Container, jsx, Styled } from 'theme-ui';
+import {
+    HashRouter as Router,
+    Switch,
+    Route,
+    Link,
+    useParams,
+    useRouteMatch
+} from "react-router-dom";
 
-function FooterComponent() {
+function BlogComponent() {
     const { t } = useTranslation();
-    let d = new Date().getHours();
-    let night = d > 18 || d < 7;
 
     return (
         <Container sx={{
@@ -15,17 +21,15 @@ function FooterComponent() {
             px: 3,
             variant: 'container',
         }}>
-            <p>{t('footer.copy')} @<a sx={{
-                variant: 'styles.navlink',
-                color: night ? 'aliceblue' : 'deepblue'
-            }} href='https://twitter.com/suzamax'>suzamax</a></p>
+            <Styled.h1>{t('blog.title')}</Styled.h1>
+
         </Container>
     );
 }
-export default function Footer() {
+export default function Blog() {
     return (
         <Suspense fallback="...">
-            <FooterComponent/>
+            <BlogComponent/>
         </Suspense>
     );
 }
