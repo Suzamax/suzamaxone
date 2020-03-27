@@ -1,7 +1,7 @@
 import Skills from "./components/Skills";
-import Blog from "./components/Blog";
 import About from "./components/About";
 import MainPage from "./components/MainPage";
+import CV from "./components/CV";
 
 const routes = [
     {
@@ -9,8 +9,8 @@ const routes = [
         component: Skills,
     },
     {
-        path: "/blog",
-        component: Blog,
+        path: "/cv",
+        component: CV,
     },
     {
         path: "/about",

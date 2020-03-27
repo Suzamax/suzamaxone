@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Container, jsx, Styled } from 'theme-ui';
+import { Container, jsx } from 'theme-ui';
 
 function FooterComponent() {
     const { t } = useTranslation();

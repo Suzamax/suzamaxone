@@ -1,8 +1,8 @@
-import { polaris } from '@theme-ui/presets';
+import { swiss } from '@theme-ui/presets';
 import { deep } from '@theme-ui/presets';
 
 let d = new Date().getHours();
-let theme = (d > 18 || d < 7) ? deep : polaris;
+let theme = (d > 19 || d < 7) ? deep : swiss;
 
 export default {
     ...theme,
