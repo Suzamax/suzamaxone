@@ -1,6 +1,7 @@
+/** @jsx jsx */
 import React, { Suspense } from "react";
 import { useTranslation } from 'react-i18next';
-import { Container, Styled } from 'theme-ui';
+import { Container, Styled, jsx } from 'theme-ui';
 
 function MainPageComponent() {
     const { t } = useTranslation();
@@ -15,10 +16,8 @@ function MainPageComponent() {
                     variant: 'container',
             }}>
                 <Styled.h1>{t('mainpage.title')}</Styled.h1>
-                <Styled.h2>{t('mainpage.subtitle')}</Styled.h2>
-            </Container>
-            <Container>
-
+                <Styled.h2 sx={{
+                }}>{t('mainpage.subtitle')}</Styled.h2>
             </Container>
         </main>
     );

@@ -50,6 +50,10 @@ module.exports = {
                     'file-loader',
                 ],
             },
+            {
+                test: /\.css$/,
+                use: [ 'style-loader', 'css-loader' ]
+            },
         ]
     },
     plugins: [
@@ -58,7 +62,7 @@ module.exports = {
             filename: "./index.html"
         }),
         new CopyPlugin([
-            { from: './src/assets', to: path.resolve(__dirname, 'dist/assets') },
+            //{ from: './src/assets', to: path.resolve(__dirname, 'dist/assets') },
         ]),
     ]
 };

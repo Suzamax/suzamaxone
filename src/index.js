@@ -8,6 +8,7 @@ import theme from './theme';
 import Main from './Main';
 import * as serviceWorker from './serviceWorker';
 import './i18n';
+import './Print.css';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -19,7 +20,7 @@ ReactDOM.render(
               },
               {
                   font: 'Roboto Slab',
-                  weights: [400, 700],
+                  weights: [400, 700, '400i'],
               },
               {
                   font: 'Roboto Mono',

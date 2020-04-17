@@ -1,34 +1,31 @@
 /** @jsx jsx */
-import {
-    HashRouter as Router,
-    Switch,
-    Route,
-} from "react-router-dom";
 import { jsx } from "theme-ui";
 import { Suspense } from "react";
 
-import routes from "./router";
+import Skills from "./components/Skills";
+import About from "./components/About";
+import MainPage from "./components/MainPage";
+import CV from "./components/CV";
+
 import Footer from './components/Layout/Footer';
 import Layout from './components/Layout/Layout';
 import Header from './components/Layout/Header';
 
 function AppComponent() {
     return (
-    <Router>
+    <div>
         <Header/>
         <Layout>
-            <Switch>
-                {routes.map((route, i) => (
-                    <RouteWithSubRoutes key={i} {...route} />
-                ))}
-            </Switch>
+            <MainPage />
+            <About />
+            <Skills />
+            <CV />
         </Layout>
-        <Footer
-            sx={{
-                width: '100%',
-                variant: 'layout.footer',
-            }}/>
-    </Router>
+        <Footer sx={{
+            width: '100%',
+            variant: 'layout.footer',
+        }}/>
+    </div>
   );
 }
 
@@ -37,17 +34,5 @@ export default function Main() {
         <Suspense fallback="...">
             <AppComponent/>
         </Suspense>
-    );
-}
-
-function RouteWithSubRoutes(route) {
-    return (
-        <Route
-            path={route.path}
-            render={props => (
-                // pass the sub-routes down to keep nesting
-                <route.component {...props} />
-            )}
-        />
     );
 }

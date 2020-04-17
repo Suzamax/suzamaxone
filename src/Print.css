@@ -1,0 +1,11 @@
+@media print {
+    header, footer {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 30rem) {
+    #scrollers {
+        display: none;
+    }
+}

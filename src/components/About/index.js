@@ -13,7 +13,9 @@ function AboutComponent() {
             px: 3,
             variant: 'container',
         }}>
-            <Styled.h1>{t('about.title')}</Styled.h1>
+            <Styled.p>{t('about.p1')}</Styled.p>
+            <Styled.p>{t('about.p2')}</Styled.p>
+            <Styled.p>{t('about.p3')}</Styled.p>
         </Container>
     );
 }

@@ -9,17 +9,16 @@ function FooterComponent() {
     let night = d > 18 || d < 7;
 
     return (
-        <Container sx={{
-            maxWidth: 960,
-            mx: 'auto',
-            px: 3,
-            variant: 'container',
-        }}>
-            <p>{t('footer.copy')} @<a sx={{
-                variant: 'styles.navlink',
-                color: night ? 'aliceblue' : 'deepblue'
-            }} href='https://twitter.com/suzamax'>suzamax</a></p>
-        </Container>
+        <footer>
+            <Container sx={{
+                maxWidth: 960,
+                mx: 'auto',
+                px: 3,
+                variant: 'container',
+            }}>
+                <p>{t('footer.copy')}</p>
+            </Container>
+        </footer>
     );
 }
 export default function Footer() {
